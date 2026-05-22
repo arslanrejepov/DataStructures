@@ -25,3 +25,33 @@ class LinkedList:
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
+
+    def delete(self, key):
+        current = self.head
+
+        if not current:
+            return
+
+        if current.data == key:
+            self.head = current.next  # Shift the head to the second element
+            current = None             # Free up memory
+            return
+
+        prev = None
+        while current and current.data != key:
+            prev = current
+            current = current.next
+
+        if not current:
+            return
+
+        prev.next = current.next
+        current = None
+
+        def display(self):
+            elements = []
+            current = self.head
+            while current:
+                elements.append(str(current.data))
+            current = current.next
+            print(" -> ".join(elements) + " -> None")
