@@ -48,10 +48,25 @@ class LinkedList:
         prev.next = current.next
         current = None
 
-        def display(self):
-            elements = []
-            current = self.head
-            while current:
-                elements.append(str(current.data))
+    def display(self):
+        elements = []
+        current = self.head
+        while current:
+            elements.append(str(current.data))
             current = current.next
-            print(" -> ".join(elements) + " -> None")
+        print(" -> ".join(elements) + " -> None")
+
+
+
+if __name__=="__main__":
+
+    llist = LinkedList()
+
+    llist.append(10)
+    llist.append(30)
+    llist.prepend(5)
+    llist.display()
+
+
+# space Complexity for all the  functions except display() is O(1)[for display O(n)]
+# time Complexity for prepend is O(1) for others is O(n) in average/worst case we need go through all n nodes
